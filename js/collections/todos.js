@@ -18,4 +18,7 @@ var TodoList = Backbone.Collection.extend({
 		}
 		return this.last().get('order') + 1;
 	},
+	comparator: function() {
+		return todo.get('order');
+	}
 });
