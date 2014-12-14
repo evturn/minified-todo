@@ -2,8 +2,7 @@ var app = app || {};
 
 var TodoList = Backbone.Collection.extend({
 	model: app.Todo,
-	// Uncomment below when I get wifi in the morning
-	// localStorage: new Backbone.LocalStorage('todos-backbone'),
+	localStorage: new Backbone.LocalStorage('todos-backbone'),
 	completed: function() {
 		return this.filter(function( todo ) {
 			return todo.get('completed');

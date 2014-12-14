@@ -3,7 +3,12 @@ var Workspace = Backbone.Router.extend({
 		'*filter': 'setFilter'
 	},
 	setFilter: function( param ) {
-		window.app.Todos.trigger('filter');
+		if (param) {
+			param = param.trim();
+		}
+		app.TodoFilter = param || '';
+		
+		app.Todos.trigger('filter');
 	}
 });
 
