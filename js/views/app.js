@@ -22,6 +22,20 @@ app.AppView = Backbone.View.extend({
 
 		app.Todos.fetch();
 	},
+	render: function() {
+		var completed = app.Todos.completed().length;
+		var remaining = app.Todos.remaining().length;
+
+		if ( app.Todos.length ) {
+			this.$main.show();
+			this.$footer.show();
+
+			this.$footer.html(this.statsTemplate({
+				completed: completed,
+				remaining: remaining
+			}));
+		}
+	},
 	addOne: function( todo ) {
 		var view = new app.TodoView({ model: todo });
 		$('#todo-list').append( view.render().el );
