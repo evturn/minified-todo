@@ -22,3 +22,5 @@ var TodoList = Backbone.Collection.extend({
 		return todo.get('order');
 	}
 });
+
+app.Todos = new TodoList();
